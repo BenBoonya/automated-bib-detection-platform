@@ -1,0 +1,58 @@
+/*!
+ * Start Bootstrap - 4 Col Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+.findTagBtn {
+  position: absolute;
+  right: -50px;
+  margin-top: 5%;
+}
+.button {
+    background-color: #428bca; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.box {
+    width: 17%;
+    height: 1500px !important;
+    border: 3px solid #428bca;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.right  {
+  position: absolute;
+  right: 10px;
+}
+
+.bottom{
+  position: absolute;
+  bottom: 0;
+}
+
+.selected-element {
+  padding : 5px;
+}
+
+.collapse{
+  float: right;
+}

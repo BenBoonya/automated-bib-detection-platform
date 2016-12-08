@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Thai.Run Process</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/home/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--  Image picker CSS-->
+    <link href="/static/home/css/image-picker.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/home/css/4-col-portfolio.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Thai.Run Process</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/results">Result</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container main-content">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Select Photo</h1>
+            </div>
+
+            <div class="col-md-6">
+              <a href="/results">
+                <button id="findTagBtn" class="findTagBtn button" type="button">Find Tag Number</button>
+              </a>
+            </div>
+
+        </div>
+        <hr>
+
+        <!-- /.row -->
+          <div class="row">
+            <div id="display-selected-images">
+              <select multiple="multiple" class="image-picker box right" id="image-picker-selector">
+                {% for img in image_info_list %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                  <option class="selected-element" data-img-src="{{img.image_url}}" value="{{img.value}}">
+                    {{ img.image_name }}
+                  </option>
+                </div>
+                {% endfor %}
+              </select>
+
+          </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="row text-center">
+              <div class="col-lg-12">
+                  <ul class="pagination">
+
+                      {% if page > 1 %}
+                      <li>
+                          <a href="/page{{previous_page}}">&laquo;</a>
+                      </li>
+                      {% endif %}
+
+                      <li class="active">
+                          <a> {{page}} </a>
+                      </li>
+
+                      <li>
+                          <a href="/page{{next_page}}">&raquo;</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+        <hr>
+
+        <!-- <form action="." method="POST">
+          <input type="submit" class="btn" name="mybtn" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; ">
+          {% csrf_token %}
+        </form>
+
+          {% for img in img_list %}
+          <div class="img">
+            <img src="{{img}}" alt="image" width="300" height="200">
+          </div>
+          {% endfor %} -->
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/static/home/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/home/js/bootstrap.min.js"></script>
+
+    <!--  Image picker js-->
+    <script src="/static/home/js/image-picker.min.js"></script>
+
+    <!--  Sticky js-->
+    <script src="/static/home/js/jquery.sticky.js"></script>
+
+
+    <script>
+      $("select").imagepicker();
+
+      $("select").imagepicker({
+          hide_select : false,
+          show_label  : true
+        });
+    </script>
+
+    <script>
+      function findtag()  {
+          $("select").data('picker').sync_picker_with_select();
+          let value = $('#image-picker-selector').val();
+          console.log( value);
+      }
+    </script>
+
+    <!-- <script>
+    $(document).ready(function(){
+      $("#display-selected-images").sticky({topSpacing:30});
+    });
+    </script> -->
+
+
+
+</body>
+</html>
